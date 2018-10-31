@@ -1,0 +1,16 @@
+{
+	"buttons": [
+		"formatting",
+		"bold",
+		"italic",
+		"unorderedlist",
+		"orderedlist",
+		"link",
+		"image"
+	],
+	"formatting": ["p", "h1"],
+	"plugins": [
+		"fullscreen"
+	],
+	"toolbarFixed": true
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+
+    {# Stylesheets #}
+    {% if craft.app.config.general.devMode == false %}
+        <link rel="stylesheet" href="{{ craft.app.config.general.assetHost }}{{ craft.stamp.er('/dist/main.css', 'query') }}"/>
+    {% endif %}
+</head>
+<body>
+    {% block main %}
+        <p>
+            Main block not found.
+        </p>
+    {% endblock %}
+    
+    {# Scripts #}
+    <script defer src="{{ craft.app.config.general.assetHost }}{{ craft.stamp.er('/dist/main.js', 'query') }}"></script>
+</body>
+</html>
