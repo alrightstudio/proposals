@@ -1,0 +1,94 @@
+//
+// === Configuration
+//
+
+$xs: 360px;
+$sm: 600px;
+$md: 800px;
+$lg: 1000px;
+$xl: 1200px;
+
+$white: #FFFFFF;
+$black: #000000;
+$yellow: #FFC500;
+$blue: #004FFF;
+$red: #FF0000;
+
+//
+// === Global
+//
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+//
+// === Hero
+//
+
+.hero,
+.hero .content-top,
+.hero .content-main,
+.hero .content-bottom {
+    display: flex;    
+    width: 100%;
+}
+
+.hero {
+    flex-direction: column;
+    min-height: 400px;
+    height: 100vh;
+    justify-content: space-between;
+    background-size: cover;
+    color: white;
+
+    .content-top {
+        border-bottom: 1px solid gray;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100px;
+
+        h2 {
+            padding-left: 20px;
+        }
+
+        p {
+            padding-right: 20px;
+        }
+    }
+
+    .content-main {
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .content-bottom {
+        border-top: 1px solid gray;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        min-height: 100px;
+    }
+}
+
+.hero.footer .content-bottom {
+    justify-content: space-between;
+
+    p:first-of-type {
+        padding-left: 20px;
+    }
+
+    p:last-of-type {
+        padding-right: 20px;
+    }
+}
+
+//
+// === Body
+//
+
+#body div {
+    margin: 20px auto;
+    padding: 80px 20px;
+}

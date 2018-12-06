@@ -1,0 +1,94 @@
+{% extends "_layout" %}
+
+{% block main %}
+
+    {% set image = entry.heroFooterImage.one() %}
+
+    <style>
+        .hero {
+            background-image: url("{{ image.url }}");
+        }
+    </style>
+
+    <section class="hero">
+        <div class="content-top">
+            <h2>{{ entry.clientName }}</h2>
+            <p>{{ entry.date|date('m/d/Y') }}</p>
+        </div>
+        <div class="content-main">
+            <h1>Super Duper Client - {{ entry.projectName }}</h1>
+        </div>
+        <div class="content-bottom">
+            <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+        </div>
+    </section>
+
+    <section id="body">
+        <div class="cover-letter">
+            <h2>Dear {{ entry.clientName }},</h2>
+            {% for block in entry.body %}
+                <p>{{ block.coverLetterBody }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="goals-and-input">
+            {% for block in entry.body %}
+                <p>{{ block.yourGoalsOurInput }}</p>
+                <p>{{ block.ourGoalsYourInput }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="process">
+            {% for block in entry.body %}
+                <p>{{ block.research }}</p>
+                <p>{{ block.design }}</p>
+                <p>{{ block.build }}</p>
+                <p>{{ block.launch }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="deliverables">
+            {% for block in entry.body %}
+                <p>{{ block.deliverables }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="open-questions">
+            {% for block in entry.body %}
+                <p>{{ block.openQuestions }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="details">
+            {% for block in entry.body %}
+                <p>{{ block.details }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="closing">
+            {% for block in entry.body %}
+                <p>{{ block.closing }}</p>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="hero footer">
+        <div class="content-top">
+            <h2>{{ entry.clientName }}</h2>
+            <p>{{ entry.date|date('m/d/Y') }}</p>
+        </div>
+        <div class="content-main">
+            <h1>Thank you :)</h1>
+        </div>
+        <div class="content-bottom">
+            <div id="signature">
+                <p>Alright Studio</p>
+            </div>
+            <div id="url">
+                <p>{{ entry.url() }}</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
