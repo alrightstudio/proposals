@@ -23,54 +23,25 @@
         </div>
     </section>
 
-    <section id="body">
-        <div class="cover-letter">
-            <h2>Dear {{ entry.clientName }},</h2>
-            {% for block in entry.body %}
-                <p>{{ block.coverLetterBody }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="goals-and-input">
-            {% for block in entry.body %}
-                <p>{{ block.yourGoalsOurInput }}</p>
-                <p>{{ block.ourGoalsYourInput }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="process">
-            {% for block in entry.body %}
-                <p>{{ block.research }}</p>
-                <p>{{ block.design }}</p>
-                <p>{{ block.build }}</p>
-                <p>{{ block.launch }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="deliverables">
-            {% for block in entry.body %}
-                <p>{{ block.deliverables }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="open-questions">
-            {% for block in entry.body %}
-                <p>{{ block.openQuestions }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="details">
-            {% for block in entry.body %}
-                <p>{{ block.details }}</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="closing">
-            {% for block in entry.body %}
-                <p>{{ block.closing }}</p>
-            {% endfor %}
-        </div>
-    </section>
+    {% for bodySection in entry.body %}
+        {% if bodySection.type == 'richText' %}
+            <section class="proposal-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>{{ bodySection.blockTitle }}</p>
+                        </div>
+                        <div class="col-md-9">
+                            <p>{{ bodySection.blockBody|nl2br }}</p>
+                            {% if not loop.last %}
+                                <hr>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
     
     <section class="hero footer">
         <div class="content-top">
