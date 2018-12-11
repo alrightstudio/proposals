@@ -19,6 +19,10 @@
     {% endblock %}
     
     {# Scripts #}
-    <script defer src="{{ craft.app.config.general.assetHost }}{{ craft.stamp.er('/dist/main.js', 'query') }}"></script>
+    {% if craft.app.config.general.devMode %}
+        <script defer src="{{ craft.app.config.general.assetHost }}/dist/main.js"></script>
+    {% else %}
+        <script defer src="{{ craft.app.config.general.assetHost }}{{ craft.stamp.er('/dist/main.js', 'query') }}"></script>
+    {% endif %}
 </body>
 </html>

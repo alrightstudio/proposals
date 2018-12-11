@@ -1,0 +1,75 @@
+//
+// === Libraries
+//
+
+@import "~bootstrap/scss/bootstrap";
+
+
+//
+// === Hero
+//
+
+.hero,
+.hero .content-top,
+.hero .content-main,
+.hero .content-bottom {
+    display: flex;    
+    width: 100%;
+}
+
+.hero {
+    flex-direction: column;
+    min-height: 400px;
+    height: 100vh;
+    justify-content: space-between;
+    background-size: cover;
+    color: white;
+
+    .content-top {
+        border-bottom: 1px solid gray;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100px;
+
+        h2 {
+            padding-left: 20px;
+        }
+
+        p {
+            padding-right: 20px;
+        }
+    }
+
+    .content-main {
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .content-bottom {
+        border-top: 1px solid gray;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        min-height: 100px;
+    }
+}
+
+.hero.footer .content-bottom {
+    justify-content: space-between;
+
+    p:first-of-type {
+        padding-left: 20px;
+    }
+
+    p:last-of-type {
+        padding-right: 20px;
+    }
+}
+
+//
+// === Body
+//
+
+.proposal-section {
+    margin: 60px auto;
+}

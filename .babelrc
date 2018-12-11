@@ -1,0 +1,15 @@
+{
+    "presets": [
+        ["@babel/env", {
+            "modules": false,
+            "targets": "> 1%"
+        }],
+        ["@babel/react", {
+            "pragma": "h"
+        }]
+    ],
+    "plugins": [
+        "transform-object-rest-spread",
+        "transform-object-assign"
+    ]
+}

@@ -5,3 +5,5 @@
 /config/license.key
 node_modules
 .yarn-cache
+/web/img
+/web/cpresources

@@ -1,0 +1,65 @@
+{% extends "_layout" %}
+
+{% block main %}
+
+    {% set image = entry.heroFooterImage.one() %}
+
+    <style>
+        .hero {
+            background-image: url("{{ image.url }}");
+        }
+    </style>
+
+    <section class="hero">
+        <div class="content-top">
+            <h2>{{ entry.clientName }}</h2>
+            <p>{{ entry.date|date('m/d/Y') }}</p>
+        </div>
+        <div class="content-main">
+            <h1>Super Duper Client - {{ entry.projectName }}</h1>
+        </div>
+        <div class="content-bottom">
+            <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+        </div>
+    </section>
+
+    {% for bodySection in entry.body %}
+        {% if bodySection.type == 'richText' %}
+            <section class="proposal-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p>{{ bodySection.blockTitle }}</p>
+                        </div>
+                        <div class="col-md-9">
+                            <p>{{ bodySection.blockBody|nl2br }}</p>
+                            {% if not loop.last %}
+                                <hr>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+    
+    <section class="hero footer">
+        <div class="content-top">
+            <h2>{{ entry.clientName }}</h2>
+            <p>{{ entry.date|date('m/d/Y') }}</p>
+        </div>
+        <div class="content-main">
+            <h1>Thank you :)</h1>
+        </div>
+        <div class="content-bottom">
+            <div id="signature">
+                <p>Alright Studio</p>
+            </div>
+            <div id="url">
+                <p>{{ entry.url() }}</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
