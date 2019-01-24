@@ -173,3 +173,18 @@ body {
 .proposal-section hr {
     margin: 3rem auto;
 }
+
+.hidden {
+    display: none;
+}
+
+
+//
+// === Table of Contents
+//
+
+.toc {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

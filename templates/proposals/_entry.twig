@@ -17,7 +17,6 @@
 
     <section class="hero">
         <div class="content-top">
-            {# <h2>{{ entry.clientName }}</h2> #}
             <div class="client-logo"></div>
             <p>{{ entry.date|date('m/d/Y') }}</p>
         </div>
@@ -29,13 +28,30 @@
         </div>
     </section>
 
+    <section class="toc">
     {% for bodySection in entry.body %}
         {% if bodySection.type == 'richText' %}
-            <section class="proposal-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
-                            <p>{{ bodySection.blockTitle }}</p>
+                        <div class="col-md-3 scrolling-toc-block">
+                            <p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                </div>
+        {% endif %}
+    {% endfor %}
+    </section>
+
+    <section class="proposal-body">
+    {% for bodySection in entry.body %}
+        {% if bodySection.type == 'richText' %}
+            <div class="proposal-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 toc-block">
+                            <p class="toc-title">{{ bodySection.blockTitle }}</p>
                         </div>
                         <div class="col-md-9">
                             <p>{{ bodySection.blockBody|nl2br }}</p>
@@ -45,13 +61,13 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         {% endif %}
     {% endfor %}
+    </section>
     
     <section class="hero footer">
         <div class="content-top">
-            {# <h2>{{ entry.clientName }}</h2> #}
             <div class="client-logo"></div>
             <p>{{ entry.date|date('m/d/Y') }}</p>
         </div>
