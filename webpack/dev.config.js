@@ -122,7 +122,7 @@ module.exports = {
 		hot: true,
 		contentBase: './web',
 		allowedHosts: [
-			'fintech.local'
+			'proposals.alright.local'
 		],
 		headers: {
 			'Access-Control-Allow-Origin': '*'
