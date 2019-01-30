@@ -2,7 +2,9 @@
 /* eslint-disable no-extra-semi */
 import '../styles/main.scss';
 
+const mainContentArea = document.querySelector('.proposal-body');
 const proposalSections = document.querySelectorAll('.proposal-section');
+const toc = document.querySelector('.toc');
 const scrollingTocBlocks = document.querySelectorAll('.scrolling-toc-block');
 const tocTitles = document.querySelectorAll('.toc-title');
 const scrollingTocTitles = document.querySelectorAll('.scrolling-toc-title');
@@ -23,8 +25,6 @@ window.addEventListener('scroll', function() {
     }
     
     // This stops the scrolling effect onc the user gets to the footer
-    const mainContentArea = document.querySelector('.proposal-body');
-    const toc= document.querySelector('.toc');
     const maxPosition = mainContentArea.offsetTop + mainContentArea.offsetHeight - toc.offsetHeight;
 
     if (window.pageYOffset >= maxPosition) {
