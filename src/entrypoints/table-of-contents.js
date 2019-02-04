@@ -26,8 +26,8 @@ window.addEventListener('scroll', function() {
     const maxPosition = mainContentArea.offsetTop + mainContentArea.offsetHeight - toc.offsetHeight;
 
     if (window.pageYOffset >= maxPosition) {
-        toc.setAttribute('style', 'position: absolute; top: ' + maxPosition + 'px;');
+        toc.setAttribute('style', `position: absolute; top: ${maxPosition}px;`);
     } else {
-        toc.setAttribute('style', 'position: fixed; top:' + null + ';');
+        toc.setAttribute('style', `position: fixed; top: ${null};`);
     }
 });
