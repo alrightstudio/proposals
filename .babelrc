@@ -1,15 +1,16 @@
 {
-    "presets": [
-        ["@babel/env", {
-            "modules": false,
-            "targets": "> 1%"
-        }],
-        ["@babel/react", {
-            "pragma": "h"
-        }]
-    ],
-    "plugins": [
-        "transform-object-rest-spread",
-        "transform-object-assign"
-    ]
+	"presets": [
+		["@babel/env", {
+			"modules": false,
+			"targets": "> 1%"
+		}],
+		["@babel/react", {
+			"pragma": "h"
+		}]
+	],
+	"plugins": [
+		"@babel/plugin-syntax-dynamic-import",
+		"@babel/plugin-proposal-object-rest-spread",
+		"@babel/plugin-transform-object-assign"
+	]
 }
