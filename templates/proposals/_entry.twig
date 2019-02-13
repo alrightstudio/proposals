@@ -2,94 +2,94 @@
 
 {% block main %}
 
-    {% set heroImage = entry.heroFooterImage.one() %}
-    {% set clientImage = entry.clientLogo.one() %}
+	{% set heroImage = entry.heroFooterImage.one() %}
+	{% set clientImage = entry.clientLogo.one() %}
 
-    <style>
-        .hero {
-            background-image: url("{{ heroImage.url }}");
-        }
+	<style>
+		.hero {
+			background-image: url("{{ heroImage.url }}");
+		}
 
-        .client-logo {
-            background-image: url("{{ clientImage.url }}");
-        }
-    </style>
+		.client-logo {
+			background-image: url("{{ clientImage.url }}");
+		}
+	</style>
 
-    <section class="hero">
-        <div class="content-top">
-            <div class="client-logo"></div>
-            <p>{{ entry.date|date('m/d/Y') }}</p>
-        </div>
-        <div class="content-main">
-            <h1>{{ entry. clientName }} - {{ entry.projectName }}</h1>
-        </div>
-        <div class="content-bottom">
-            <div>
-                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
-            </div>
-            <div>
-                <p>ALRIGHT.STUDIO</p>
-            </div>
-        </div>
-    </section>
+	<section class="hero">
+		<div class="content-top">
+			<div class="client-logo"></div>
+			<p>{{ entry.date|date('m/d/Y') }}</p>
+		</div>
+		<div class="content-main">
+			<h1>{{ entry. clientName }} - {{ entry.projectName }}</h1>
+		</div>
+		<div class="content-bottom">
+			<div>
+				<p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+			</div>
+			<div>
+				<p>ALRIGHT.STUDIO</p>
+			</div>
+		</div>
+	</section>
 
-    <section class="toc">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            {% for bodySection in entry.body %}
-                                {% if bodySection.type == 'richText' %}
-                                    <div class="scrolling-toc-block">
-                                        <p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="col-md-9">
-                        </div>
-                    </div>
-                </div>
-    </section>
+	<section class="toc">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					{% for bodySection in entry.body %}
+						{% if bodySection.type == 'richText' %}
+							<div class="scrolling-toc-block">
+								<p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="col-md-9">
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section class="proposal-body">
-    {% for bodySection in entry.body %}
-        {% if bodySection.type == 'richText' %}
-            <div class="proposal-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 toc-block">
-                            <p class="toc-title">{{ bodySection.blockTitle }}</p>
-                        </div>
-                        <div class="col-md-9">
-                            <p>{{ bodySection.blockBody|nl2br }}</p>
-                            {% if not loop.last %}
-                                <hr>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-    </section>
-    
-    <section class="hero footer">
-        <div class="content-top">
-            <div class="client-logo"></div>
-            <p>{{ entry.date|date('m/d/Y') }}</p>
-        </div>
-        <div class="content-main">
-            <h1>{{ entry.signOff }}</h1>
-        </div>
-        <div class="content-bottom">
-            <div>
-                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
-            </div>
-            <div>
-                <p>ALRIGHT.STUDIO</p>
-            </div>
-        </div>
-    </section>
+	<section class="proposal-body">
+		{% for bodySection in entry.body %}
+			{% if bodySection.type == 'richText' %}
+				<div class="proposal-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 toc-block">
+								<p class="toc-title">{{ bodySection.blockTitle }}</p>
+							</div>
+							<div class="col-md-9">
+								<p>{{ bodySection.blockBody|nl2br }}</p>
+								{% if not loop.last %}
+									<hr>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</section>
+	
+	<section class="hero footer">
+		<div class="content-top">
+			<div class="client-logo"></div>
+			<p>{{ entry.date|date('m/d/Y') }}</p>
+		</div>
+		<div class="content-main">
+			<h1>{{ entry.signOff }}</h1>
+		</div>
+		<div class="content-bottom">
+			<div>
+				<p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+			</div>
+			<div>
+				<p>ALRIGHT.STUDIO</p>
+			</div>
+		</div>
+	</section>
 
 {% endblock %}
 
