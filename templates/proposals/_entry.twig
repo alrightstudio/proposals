@@ -2,34 +2,63 @@
 
 {% block main %}
 
-    {% set image = entry.heroFooterImage.one() %}
+    {% set heroImage = entry.heroFooterImage.one() %}
+    {% set clientImage = entry.clientLogo.one() %}
 
     <style>
         .hero {
-            background-image: url("{{ image.url }}");
+            background-image: url("{{ heroImage.url }}");
+        }
+
+        .client-logo {
+            background-image: url("{{ clientImage.url }}");
         }
     </style>
 
     <section class="hero">
         <div class="content-top">
-            <h2>{{ entry.clientName }}</h2>
+            <div class="client-logo"></div>
             <p>{{ entry.date|date('m/d/Y') }}</p>
         </div>
         <div class="content-main">
-            <h1>Super Duper Client - {{ entry.projectName }}</h1>
+            <h1>{{ entry. clientName }} - {{ entry.projectName }}</h1>
         </div>
         <div class="content-bottom">
-            <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+            <div>
+                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+            </div>
+            <div>
+                <p>ALRIGHT.STUDIO</p>
+            </div>
         </div>
     </section>
 
-    {% for bodySection in entry.body %}
-        {% if bodySection.type == 'richText' %}
-            <section class="proposal-section">
+    <section class="toc">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <p>{{ bodySection.blockTitle }}</p>
+                            {% for bodySection in entry.body %}
+                                {% if bodySection.type == 'richText' %}
+                                    <div class="scrolling-toc-block">
+                                        <p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <section class="proposal-body">
+    {% for bodySection in entry.body %}
+        {% if bodySection.type == 'richText' %}
+            <div class="proposal-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 toc-block">
+                            <p class="toc-title">{{ bodySection.blockTitle }}</p>
                         </div>
                         <div class="col-md-9">
                             <p>{{ bodySection.blockBody|nl2br }}</p>
@@ -39,24 +68,25 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         {% endif %}
     {% endfor %}
+    </section>
     
     <section class="hero footer">
         <div class="content-top">
-            <h2>{{ entry.clientName }}</h2>
+            <div class="client-logo"></div>
             <p>{{ entry.date|date('m/d/Y') }}</p>
         </div>
         <div class="content-main">
-            <h1>Thank you :)</h1>
+            <h1>{{ entry.signOff }}</h1>
         </div>
         <div class="content-bottom">
-            <div id="signature">
-                <p>Alright Studio</p>
+            <div>
+                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
             </div>
-            <div id="url">
-                <p>{{ entry.url() }}</p>
+            <div>
+                <p>ALRIGHT.STUDIO</p>
             </div>
         </div>
     </section>
