@@ -24,24 +24,31 @@
             <h1>{{ entry. clientName }} - {{ entry.projectName }}</h1>
         </div>
         <div class="content-bottom">
-            <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+            <div>
+                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
+            </div>
+            <div>
+                <p>ALRIGHT.STUDIO</p>
+            </div>
         </div>
     </section>
 
     <section class="toc">
-    {% for bodySection in entry.body %}
-        {% if bodySection.type == 'richText' %}
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 scrolling-toc-block">
-                            <p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+                        <div class="col-md-3">
+                            {% for bodySection in entry.body %}
+                                {% if bodySection.type == 'richText' %}
+                                    <div class="scrolling-toc-block">
+                                        <p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                         <div class="col-md-9">
                         </div>
                     </div>
                 </div>
-        {% endif %}
-    {% endfor %}
     </section>
 
     <section class="proposal-body">
@@ -75,11 +82,11 @@
             <h1>{{ entry.signOff }}</h1>
         </div>
         <div class="content-bottom">
-            <div id="signature">
-                <p>Alright Studio</p>
+            <div>
+                <p>A PROPOSAL FROM ALRIGHT STUDIO</p>
             </div>
-            <div id="url">
-                <p>{{ entry.url() }}</p>
+            <div>
+                <p>ALRIGHT.STUDIO</p>
             </div>
         </div>
     </section>

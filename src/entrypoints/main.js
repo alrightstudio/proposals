@@ -1,4 +1,18 @@
-/* eslint-disable indent-legacy */
-/* eslint-disable no-extra-semi */
 import '../styles/main.scss';
-import './table-of-contents.js';
+import TableOfContents from '../components/table-of-contents';
+
+const mainContentArea = document.querySelector('.proposal-body');
+const proposalSections = document.querySelectorAll('.proposal-section');
+const toc = document.querySelector('.toc');
+const scrollingTocBlocks = document.querySelectorAll('.scrolling-toc-block');
+const tocTitles = document.querySelectorAll('.toc-title');
+const scrollingTocTitles = document.querySelectorAll('.scrolling-toc-title');
+
+TableOfContents({
+	mainContentArea,
+	proposalSections,
+	toc,
+	scrollingTocBlocks,
+	tocTitles,
+	scrollingTocTitles,
+});
