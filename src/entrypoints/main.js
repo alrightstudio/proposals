@@ -7,6 +7,7 @@ const toc = document.querySelector('.toc');
 const scrollingTocBlocks = document.querySelectorAll('.scrolling-toc-block');
 const tocTitles = document.querySelectorAll('.toc-title');
 const scrollingTocTitles = document.querySelectorAll('.scrolling-toc-title');
+const desktopBreakpoint = 768;
 
 TableOfContents({
 	mainContentArea,
@@ -15,4 +16,5 @@ TableOfContents({
 	scrollingTocBlocks,
 	tocTitles,
 	scrollingTocTitles,
+	desktopBreakpoint
 });
