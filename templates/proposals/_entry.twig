@@ -40,7 +40,7 @@
 					{% for bodySection in entry.body %}
 						{% if bodySection.type == 'richText' %}
 							<div class="scrolling-toc-block">
-								<p class="scrolling-toc-title hidden">{{ bodySection.blockTitle }}</p>
+								<p class="scrolling-toc-title hidden"><a href="#propSection{{ loop.index }}">{{ bodySection.blockTitle }}</a></p>
 							</div>
 						{% endif %}
 					{% endfor %}
@@ -54,11 +54,11 @@
 	<section class="proposal-body">
 		{% for bodySection in entry.body %}
 			{% if bodySection.type == 'richText' %}
-				<div class="proposal-section">
+				<div class="proposal-section" id="propSection{{ loop.index }}">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-3 toc-block">
-								<p class="toc-title">{{ bodySection.blockTitle }}</p>
+								<p class="toc-title"><a href="#propSection{{ loop.index }}">{{ bodySection.blockTitle }}</a></p>
 							</div>
 							<div class="col-md-9">
 								<p>{{ bodySection.blockBody|nl2br }}</p>
